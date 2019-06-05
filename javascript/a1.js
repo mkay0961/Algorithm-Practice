@@ -24,17 +24,21 @@ sockMerchant = (n , ar) =>{
 
     if(obj[el]){
       obj[el] += 1
+      if (obj[el] == 2){
+        countPairs += 1
+        obj[el] = 0
+      }
     }else{
       obj[el] = 1
     }
 
   }
 
-  for(let key in obj){
-    if(obj[key] >= 2){
-      countPairs += Math.floor(obj[key] / 2 )
-    }
-  }
+  // for(let key in obj){
+  //   if(obj[key] >= 2){
+  //     countPairs += Math.floor(obj[key] / 2 )
+  //   }
+  // }
   return countPairs
 
 }
