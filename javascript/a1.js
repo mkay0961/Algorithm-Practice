@@ -32,7 +32,7 @@ sockMerchant = (n , ar) =>{
 
   for(let key in obj){
     if(obj[key] >= 2){
-      countPairs += (obj[key] - (obj[key] % 2)) / 2
+      countPairs += Math.floor(obj[key] / 2 )
     }
   }
   return countPairs
