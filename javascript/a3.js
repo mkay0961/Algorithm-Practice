@@ -2,13 +2,17 @@
 
 
 hourglassSum = (arr) => {
-  let largest = 0
+  let largest =null 
     for( let i=0; i < arr.length; i++){
         for( let  k=0; k < arr[i].length; k++){
           // console.log(i,k);
             if(i >= 1 && i < arr.length -1 && k >= 1 && k < arr[i].length -1){
 
               let hourGlass = arr[i-1][k-1] + arr[i-1][k] + arr[i-1][k+1] + arr[i][k] + arr[i+1][k-1] + arr[i+1][k] + arr[i+1][k+1]
+              if(largest === null){
+                largest = hourGlass
+                break;
+              }
               if(hourGlass > largest){
                 largest = hourGlass
               }
