@@ -1,14 +1,17 @@
 isValid = (s) => {
-    let count = 0
-    for(let chr of s){
-        if(chr === "(" || chr === "{" || chr === "[" ){
-            count += 1
-        }else if(chr === ")" || chr === "}" || chr === "]" ){
-            count -= 1
+    let hash = {"(":")", "{":"}" , "[":"]"}
+    let stack = []
+    let array = s.split("")
+    for(let i = 0; i < array.length; i++){
+        stack.push(array[i])
+        let l =  (stack[stack.length -2])
+        let r = (stack[stack.length -1])
+        if(hash[l] === r){
+            stack.pop()
+            stack.pop()
         }
     }
-    console.log(count)
-    if(count === 0 ){
+    if(stack.length === 0){
         return true
     }else{
         return false
